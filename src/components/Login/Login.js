@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
@@ -21,7 +21,11 @@ const Login = () => {
         });
         const result = await respons.json();
         reset();
+
         if(result.status === true){
+            const token = result.user;
+            localStorage.setItem('token', token)
+            
             navigate(from, {replace: true})
         }
         else{

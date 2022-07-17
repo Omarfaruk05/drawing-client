@@ -20,6 +20,7 @@ const Register = () => {
             body: JSON.stringify(data)
         });
         const result = await respons.json();
+        
         reset();
         if(result.status === true){
             navigate(from, {replace: true})
