@@ -24,7 +24,7 @@ const Art = () => {
         contextRef.current = context;
     },[])
 
-    const token = localStorage.getItem('token')
+    const token = localStorage.getItem('token');
     if(!token){
         return navigate(from, {replace: true})
     }

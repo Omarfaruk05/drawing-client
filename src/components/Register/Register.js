@@ -23,6 +23,8 @@ const Register = () => {
         
         reset();
         if(result.status === true){
+            const token = result.user;
+            localStorage.setItem('token', token)
             navigate(from, {replace: true})
         }
         else{
