@@ -12,7 +12,7 @@ const Register = () => {
 
     const onSubmit = async(data) => {
 
-        const respons = await fetch('http://localhost:5000/register',{
+        const respons = await fetch('https://secret-meadow-28909.herokuapp.com/register',{
             method:'POST',
             headers: {
                 'content-type': 'application/json'
@@ -34,12 +34,12 @@ const Register = () => {
     return (
         <div className='bg-base-200'>
         <div className='pt-12 md:pt-24'>
-            <h2 className='text-center text-4xl text-secondary font-semibold'>Please Register</h2>
+            <h2 className='text-center text-4xl text-primary font-semibold'>Please Register</h2>
             <div className='flex justify-center h-[100vh] md:h-[90vh]'>
-                <div class="card w-96">
-                    <div class="card-body">
+                <div className="card w-96">
+                    <div className="card-body">
                         <form onSubmit={handleSubmit(onSubmit)}>
-                            <input type="name" placeholder="Your Name" class="input input-bordered input-primary w-full max-w-xs"
+                            <input type="name" placeholder="Your Name" className="input input-bordered input-primary w-full max-w-xs"
                             {...register("name",{
                                 required: {
                                     value: true,
@@ -50,7 +50,7 @@ const Register = () => {
                                 {errors.name?.type === "required" && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
                                 {errors.name?.type === "pattern" && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
                             </label>
-                            <input type="email" placeholder="Your Email" class="input input-bordered input-primary w-full max-w-xs"
+                            <input type="email" placeholder="Your Email" className="input input-bordered input-primary w-full max-w-xs"
                             {...register("email",{
                                 required: {
                                     value: true,
@@ -65,7 +65,7 @@ const Register = () => {
                                 {errors.email?.type === "required" && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
                                 {errors.email?.type === "pattern" && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
                             </label>
-                            <input type="password" placeholder="Your Password" class="input input-bordered input-primary w-full max-w-xs"
+                            <input type="password" placeholder="Your Password" className="input input-bordered input-primary w-full max-w-xs"
                             {...register("password",{
                                 required: {
                                     value: true,
@@ -81,7 +81,7 @@ const Register = () => {
                                 {errors.password?.type === "minLength" && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
                             </label>
                             {errorElement}
-                            <input type={"submit"} value="Register"  class="btn btn-secondary font-bold w-full" />
+                            <input type={"submit"} value="Register"  className="btn btn-primary text-white font-bold w-full" />
                         </form>
                         <p><small>Already have an account ? <Link className='text-primary' to={"/login"}>Please Login</Link></small></p>
                     </div>

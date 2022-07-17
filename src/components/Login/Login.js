@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
@@ -12,7 +12,7 @@ const Login = () => {
 
 
     const onSubmit = async(data) => {
-        const respons = await fetch('http://localhost:5000/login',{
+        const respons = await fetch('https://secret-meadow-28909.herokuapp.com/login',{
             method:'POST',
             headers: {
                 'content-type': 'application/json'
@@ -35,13 +35,13 @@ const Login = () => {
 
     return (
         <div  className='pt-12 md:pt-24  bg-base-200'>
-        <h2 className='text-center text-4xl text-secondary font-semibold'>Please Login</h2>
+        <h2 className='text-center text-4xl text-primary font-semibold'>Please Login</h2>
         <div  className='flex justify-center  h-[100vh] md:h-[90vh]'>
             <div>
-                <div class="card w-96">
-                    <div class="card-body">
+                <div className="card w-96">
+                    <div className="card-body">
                         <form onSubmit={handleSubmit(onSubmit)}>
-                            <input type="email" placeholder="Your Email" class="input input-bordered input-primary w-full max-w-xs"
+                            <input type="email" placeholder="Your Email" className="input input-bordered input-primary w-full max-w-xs"
                             {...register("email",{
                                 required: {
                                     value: true,
@@ -72,7 +72,7 @@ const Login = () => {
                                 {errors.password?.type === "minLength" && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
                             </label>
                             <label><small className='text-red-500'>{errorElement}</small></label>
-                            <input type={"submit"} value="Login"  class="btn btn-secondary font-bold w-full" />
+                            <input type={"submit"} value="Login"  className="btn btn-primary text-white font-bold w-full" />
                         </form>
                         <p><small>New to Doctors Portal ? <Link className='text-primary' to={"/register"}>Create New Account</Link></small></p>
                     </div>
